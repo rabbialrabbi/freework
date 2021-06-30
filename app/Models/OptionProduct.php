@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class OptionProduct extends Pivot
 {
     use HasFactory;
+
+    public function optionValue()
+    {
+        return $this->hasMany(OptionProductValue::class,'option_product_id','id');
+    }
 }

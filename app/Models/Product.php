@@ -11,7 +11,7 @@ class Product extends Model
 
     public function option()
     {
-        return $this->belongsToMany(Option::class);
+        return $this->belongsToMany(Option::class)->withPivot('description','id')->using(OptionProduct::class);
     }
 
 

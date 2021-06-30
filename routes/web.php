@@ -15,5 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
    $product = \App\Models\Product::findOrFail(1);
-   dd($product->optionValue);
+   $pv = \App\Models\OptionProductValue::all();
+//   dd($pv);
+//   dd($product->option->first()->pivot->optionValue);
+
+  $data = $product->option()->attach(4);
+   dd($data);
 });
